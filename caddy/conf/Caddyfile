@@ -1,0 +1,3 @@
+appname.com {
+  reverse_proxy appname-backend-directus-1:8055
+}
