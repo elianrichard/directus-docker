@@ -1,0 +1,14 @@
+{
+  "name": "directus-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker:up": "docker-compose -f compose.backend.yaml up -d",
+    "docker:down": "docker-compose -f compose.backend.yaml down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.4.1"
+}

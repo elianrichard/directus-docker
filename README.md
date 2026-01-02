@@ -1,6 +1,6 @@
 # Directus Docker Setup
 
-## DB Setup Checklists
+## Docker Setup Checklists
 
 - [ ] Create empty db locally and restore the DB backup inside ./directus-xx-xx-db.sql file
 
@@ -13,6 +13,8 @@ psql -d postgres://elianrichard:password@localhost:5432/appname_db < ./directus-
 
 ```bash
 docker-compose -f compose.backend.yaml up -d
+# OR
+bun run docker:up
 ```
 
 - [ ] Open [http://localhost:8055](http://localhost:8055) in your browser
@@ -20,7 +22,11 @@ docker-compose -f compose.backend.yaml up -d
 
 ```bash
 docker-compose -f compose.backend.yaml down
+# OR
+bun run docker:down
 ```
+
+- [ ] Change domain name and container name in ./caddy/conf/Caddyfile
 
 ## Directus Setup Checklists
 
