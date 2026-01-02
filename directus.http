@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:8055
+@apiKey = Bearer your_directus_user_token
+
+### =========================
+### Get blog items
+### =========================
+GET {{baseUrl}}/items/blog?fields=*
+Authorization: {{apiKey}}
+Accept: application/json
+
+### =========================
+### Get blog slugs
+### =========================
+GET {{baseUrl}}/items/blog?fields=slug&limit=-1
+Authorization: {{apiKey}}
+Accept: application/json
+
+### =========================
+### Get published blog items
+### =========================
+GET {{baseUrl}}/items/blog?fields=*&filter[status][_eq]=published&sort=sort&limit=3&page=1
+Authorization: {{apiKey}}
+Accept: application/json
+
+### =========================
+### Get general info item
+### =========================
+GET {{baseUrl}}/items/general_info?fields=*
+Authorization: {{apiKey}}
+Accept: application/json
+
+### =========================
+### Get seo settings item
+### =========================
+GET {{baseUrl}}/items/seo_settings?fields=*
+Authorization: {{apiKey}}
+Accept: application/json

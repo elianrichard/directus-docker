@@ -39,6 +39,7 @@ bun run docker:down
 - [ ] Test api call with the new token
 - [ ] Adjust Editor Email & Password
 - [ ] Adjust Editor Access Policies (check for new data models)
+- [ ] Test Editor Login
 - [ ] Adjust Flows (check for new data models)
 - [ ] Activate and test the Flows
 - [ ] Change App production URL in Flows, Settings, and Blog preview URL
