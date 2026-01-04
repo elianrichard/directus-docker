@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "docker:up": "docker-compose -f compose.backend.yaml up -d",
-    "docker:down": "docker-compose -f compose.backend.yaml down"
+    "docker:down": "docker-compose -f compose.backend.yaml down",
+    "db:backup": "source .env && docker exec appname-backend-postgres-1 pg_dump -U $DATABASE_USER $DATABASE_NAME > ./backup/db-backup.sql"
   },
   "keywords": [],
   "author": "",
