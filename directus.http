@@ -23,6 +23,13 @@ Authorization: {{apiKey}}
 Accept: application/json
 
 ### =========================
+### Get published blog items count
+### =========================
+GET {{baseUrl}}/items/blog?filter[status][_eq]=published&aggregate[count]=*
+Authorization: {{apiKey}}
+Accept: application/json
+
+### =========================
 ### Get general info item
 ### =========================
 GET {{baseUrl}}/items/general_info?fields=*
@@ -34,4 +41,12 @@ Accept: application/json
 ### =========================
 GET {{baseUrl}}/items/seo_settings?fields=*
 Authorization: {{apiKey}}
+Accept: application/json
+
+### =========================
+### Revalidate Next.js Page / Tag
+### =========================
+GET http://localhost:3000/api/revalidate?path=blog
+Authorization: nextjs_revalidate_key
+X-Revalidate-Key: nextjs_revalidate_key
 Accept: application/json
