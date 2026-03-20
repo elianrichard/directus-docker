@@ -34,7 +34,9 @@ services:
     expose:
       - "8055"
     networks:
-      - shared-proxy
+      shared-proxy:
+        aliases:
+          - directus-app1
 
 networks:
   shared-proxy:
