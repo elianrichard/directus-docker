@@ -12,6 +12,11 @@ services:
       - ./caddy/conf/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - shared-proxy
+networks:
+  shared-proxy:
+    external: true
 volumes:
   caddy_data:
   caddy_config:

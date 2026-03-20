@@ -33,3 +33,9 @@ services:
       CORS_ORIGIN: ${PUBLIC_URL}
     expose:
       - "8055"
+    networks:
+      - shared-proxy
+
+networks:
+  shared-proxy:
+    external: true
