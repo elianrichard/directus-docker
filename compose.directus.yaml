@@ -1,4 +1,4 @@
-name: appname-backend
+name: appname-directus
 
 services:
   directus:
@@ -33,28 +33,3 @@ services:
       CORS_ORIGIN: ${PUBLIC_URL}
     expose:
       - "8055"
-    networks:
-      - appname-network
-
-  caddy:
-    image: caddy:2
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-      - "443:443/udp"
-    depends_on:
-      - directus
-    volumes:
-      - ./caddy/conf/Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    networks:
-      - appname-network
-
-networks:
-  appname-network:
-
-volumes:
-  caddy_data:
-  caddy_config:

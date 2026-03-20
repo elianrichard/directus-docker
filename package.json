@@ -6,8 +6,10 @@
   "scripts": {
     "docker:up": "docker-compose -f compose.backend.yaml up -d",
     "docker:down": "docker-compose -f compose.backend.yaml down",
-    "docker-vps:up": "docker compose -f compose.directus.yaml up -d",
-    "docker-vps:down": "docker compose -f compose.directus.yaml down",
+    "docker:directus:up": "docker compose -f compose.directus.yaml up -d",
+    "docker:directus:down": "docker compose -f compose.directus.yaml down",
+    "docker:caddy:up": "docker compose -f compose.caddy.yaml up -d",
+    "docker:caddy:down": "docker compose -f compose.caddy.yaml down",
     "db:backup": "source .env && docker exec appname-backend-postgres-1 pg_dump -U $DATABASE_USER $DATABASE_NAME > ./backup/db-backup.sql"
   },
   "keywords": [],
