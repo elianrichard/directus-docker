@@ -1,0 +1,63 @@
+name: appname-backend
+services:
+  directus:
+    image: directus/directus:11
+    restart: always
+    ports:
+      - 8055:8055
+    volumes:
+      - ./extensions:/directus/extensions
+    environment:
+      SECRET: ${DIRECTUS_SECRET}
+      ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
+      DB_HOST: ${DATABASE_HOST}
+      DB_USER: ${DATABASE_USER}
+      DB_PASSWORD: ${DATABASE_PASSWORD}
+      DB_CLIENT: "postgres"
+      DB_PORT: ${DATABASE_PORT}
+      DB_DATABASE: ${DATABASE_NAME}
+      REDIS_ENABLED: "true"
+      REDIS: "redis://redis:6379"
+      CACHE_ENABLED: "true"
+      CACHE_TTL: "6 hrs"
+      CACHE_AUTO_PURGE: "true"
+      STORAGE_LOCATIONS: "s3"
+      STORAGE_S3_DRIVER: "s3"
+      STORAGE_S3_KEY: ${DIRECTUS_STORAGE_S3_KEY}
+      STORAGE_S3_SECRET: ${DIRECTUS_STORAGE_S3_SECRET}
+      STORAGE_S3_BUCKET: ${DIRECTUS_STORAGE_S3_BUCKET}
+      STORAGE_S3_REGION: ${DIRECTUS_STORAGE_S3_REGION}
+      STORAGE_S3_ENDPOINT: ${DIRECTUS_STORAGE_S3_ENDPOINT}
+      CORS_ENABLED: "true"
+      # TO DO: Change this to your domain
+      CORS_ORIGIN: "true"
+    networks:
+      - appname-network
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    depends_on:
+      - directus
+    volumes:
+      - ./caddy/conf:/etc/caddy
+      - ./caddy/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - appname-network
+networks:
+  appname-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.0.0/24"
+volumes:
+  caddy_data:
+  caddy_config:
