@@ -1,5 +1,3 @@
-name: appname-directus
-
 services:
   directus:
     image: directus/directus:11
