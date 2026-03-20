@@ -11,11 +11,11 @@ services:
       SECRET: ${DIRECTUS_SECRET}
       ADMIN_EMAIL: ${DIRECTUS_ADMIN_EMAIL}
       ADMIN_PASSWORD: ${DIRECTUS_ADMIN_PASSWORD}
-      DB_HOST: ${DATABASE_HOST}
+      DB_HOST: postgres
       DB_USER: ${DATABASE_USER}
       DB_PASSWORD: ${DATABASE_PASSWORD}
       DB_CLIENT: "postgres"
-      DB_PORT: ${DATABASE_PORT}
+      DB_PORT: "5432"
       DB_DATABASE: ${DATABASE_NAME}
       REDIS_ENABLED: "true"
       REDIS: "redis://redis:6379"

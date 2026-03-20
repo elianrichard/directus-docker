@@ -17,7 +17,7 @@ services:
       DB_USER: ${DATABASE_USER}
       DB_PASSWORD: ${DATABASE_PASSWORD}
       REDIS_ENABLED: "true"
-      REDIS: "redis://redis:6379"
+      REDIS: ${REDIS_URL}
       CACHE_ENABLED: "true"
       CACHE_TTL: "6 hrs"
       CACHE_AUTO_PURGE: "true"
