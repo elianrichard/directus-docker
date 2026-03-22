@@ -9,6 +9,12 @@ psql -d postgres://elianrichard:password@localhost:5432/appname_db < ./directus-
 ```
 
 - [ ] Adjust .env file with your db
+- [ ] Optional: Create `shared-proxy` network for caddy and directus containers
+
+```bash
+docker network create shared-proxy
+```
+
 - [ ] Run docker compose up
 
 ```bash
